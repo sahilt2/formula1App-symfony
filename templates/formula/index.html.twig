@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FormulaController!
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+		.container {
+			display: flex;
+			display: inline-block;
+			justify-content: center;
+		}
+		.cards {
+			border: 1px solid black;
+			margin: 1rem;
+			padding: 0.5rem;
+			background-color: #cfcfc4;
+		}
+	</style>
+
+	<div class="example-wrapper">
+		<h1>Formula One</h1>
+
+		<div class="container">
+
+			{% for formula1 in formula1s.MRData.RaceTable.Races %}
+				<div class="cards">
+					<a href="{{formula1.url}}">
+						{{formula1.raceName
+                }}</a>
+					<p>Circuit:
+						<span>{{formula1.Circuit.circuitName}}</span>
+					</p>
+					<p>Location:
+						<span>{{formula1.Circuit.Location.locality}},
+							{{formula1.Circuit.Location.country}}</span>
+					</p>
+					<p>Date:
+						<span>{{formula1.date}}</span>
+					</p>
+
+				</div>
+			{% endfor %}
+
+		</div>
+
+
+	</div>
+{% endblock %}
